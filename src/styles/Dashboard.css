@@ -1,0 +1,131 @@
+/* Root color palette */
+:root {
+    --primary-color: #5C6BC0; /* Deep Blue */
+    --secondary-color: #f9fafb; /* Light grey */
+    --accent-color: #00C853; /* Green Accent */
+    --bg-dark: #2C3E50; /* Darker Background */
+    --bg-light: #34495E; /* Slightly lighter background */
+    --text-light: #ECF0F1; /* Light Text Color */
+    --border-color: #7F8C8D; /* Border Color */
+  }
+  
+  body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    overflow-x: hidden;
+  }
+  
+  /* Main Container */
+  .dashboard-container {
+    display: flex;
+    min-height: 100vh;
+  }
+  
+  .main-content {
+    flex: 1;
+    margin-top: 720px;
+    padding: 30px;
+    padding-left: 250px;
+    background: #1D2633;
+    z-index: 10;
+  }
+  
+  /* Row-based Layout */
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 40px;
+  }
+  
+  .col {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  /* Key Metrics - Metric Box */
+  .key-metrics {
+    gap: 30px;
+  }
+  
+  .metric-box {
+    background: #34495E;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    transition: box-shadow 0.3s ease;
+    text-align: center;
+  }
+  
+  .metric-box:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+  }
+  
+  .metric-title {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+  }
+  
+  .metric-value {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    margin: 10px 0;
+  }
+  
+  .metric-link {
+    color: var(--accent-color);
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 10px;
+    display: inline-block;
+  }
+  
+  .metric-link:hover {
+    color: #2ecc71;
+  }
+  
+  /* Announcements and Tasks */
+  .news-feed, .task-list, .quick-links {
+    background-color: var(--bg-light);
+    border-radius: 10px;
+    padding: 20px;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    background-color: #34495E;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  li:hover {
+    transform: scale(1.05);
+    background-color: var(--primary-color);
+    color: var(--bg-dark);
+  }
+  
+  /* Quick Links Styling */
+  .quick-links a {
+    color: var(--accent-color);
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .quick-links a:hover {
+    color: #ecf0f1;
+  }
+  

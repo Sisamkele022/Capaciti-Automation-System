@@ -1,0 +1,145 @@
+.profile-container {
+    background-color: #f4f4f4;
+    width: 100%;
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .profile-header h1 {
+    color: #00796b;
+    font-size: 28px;
+    font-weight: 600;
+  }
+  
+  .edit-btn {
+    background-color: #00796b;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .edit-btn:hover {
+    background-color: #004d40;
+  }
+  
+  .profile-overview {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .profile-pic {
+    width: 200px;
+    text-align: center;
+  }
+  
+  .profile-pic-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+  
+  .upload-pic {
+    margin-top: 10px;
+  }
+  
+  .upload-label {
+    font-size: 14px;
+    color: #00796b;
+    cursor: pointer;
+  }
+  
+  .upload-input {
+    display: none;
+  }
+  
+  .profile-info {
+    width: 100%;
+    margin-left: 30px;
+  }
+  
+  .profile-item {
+    margin-bottom: 20px;
+  }
+  
+  .profile-item label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #00796b;
+  }
+  
+  .profile-item p {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .profile-input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-top: 8px;
+  }
+  
+  .bio-input {
+    height: 100px;
+  }
+  
+  .social-links {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .social-link {
+    text-decoration: none;
+  }
+  
+  .save-btn {
+    background-color: #00796b;
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .save-btn:hover {
+    background-color: #004d40;
+  }
+  
+  /* Responsiveness */
+  @media (max-width: 768px) {
+    .profile-container {
+      padding: 20px;
+    }
+  
+    .profile-header h1 {
+      font-size: 24px;
+    }
+  
+    .profile-overview {
+      flex-direction: column;
+    }
+  
+    .profile-info {
+      margin-left: 0;
+    }
+  }
+  
