@@ -1,103 +1,150 @@
-/* Container for the entire page */
+/* Scoped color palette */
+.dashboard-container {
+  --primary-color: #00C853; /* Green Accent */
+  --secondary-color: #f9fafb; /* Light Grey */
+  --accent-color: #00C853; /* Green Accent */
+  --bg-dark: #2C3E50; /* Darker Background */
+  --bg-light: #34495E; /* Slightly lighter background */
+  --text-light: #ECF0F1; /* Light Text Color */
+  --border-color: #7F8C8D; /* Border Color */
+}
+
+/* Main container */
 .issues-container {
-  max-width: 800px;
-  margin: 80px auto; /* Moves content down */
-  padding: 40px;
-  background-color: var(--bg-dark); /* Dark background */
-  border-radius: 12px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Light shadow for elevation */
+  max-width: 850px;
+  margin: 60px auto; /* Adjusted margin to ensure it fits the screen */
+  padding: 45px;
+  background-color: var(--bg-dark);
+  border-radius: 20px;
+  box-shadow: 0px 15px 50px rgba(0, 0, 0, 0.3);
   font-family: 'Arial', sans-serif;
-  color: var(--text-light); /* Light text color */
+  color: var(--text-light);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  max-height: calc(100vh - 80px); /* Ensures the container fits on the screen */
+  overflow-y: auto; /* Prevents scrolling outside the container */
 }
 
-/* Title */
+/* Title section */
 .issues-container h2 {
-  font-size: 32px;
-  color: var(--primary-color); /* Deep blue */
+  font-size: 36px;
+  color: var(--primary-color);
   text-align: center;
-  margin-bottom: 30px;
-  font-weight: bold;
+  margin-bottom: 40px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 2;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* Text area for issue input */
+/* Text area for input */
 .text-input-section textarea {
   width: 100%;
-  height: 150px;
-  padding: 15px;
-  border: 1px solid var(--border-color); /* Light border */
-  border-radius: 10px;
-  margin-bottom: 25px;
+  height: 170px; /* Adjusted height to fit screen */
+  padding: 18px;
+  border-radius: 15px;
+  border: 2px solid var(--bg-light); /* Line surrounding the text box */
+  background-color: var(--bg-light);
+  color: var(--text-light);
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
   resize: none;
-  background-color: var(--bg-light); /* Lighter background for text area */
-  color: var(--text-light); /* Light text inside text area */
-  transition: border-color 0.3s ease;
+  position: relative;
+  z-index: 2;
 }
 
+/* Text box focus state */
 .text-input-section textarea:focus {
-  border-color: var(--accent-color); /* Green border when focused */
+  border-color: var(--accent-color);
   outline: none;
+  box-shadow: 0px 0px 12px rgba(0, 200, 83, 0.5);
 }
 
-/* Section for feedback category selection */
+/* Category selection - radio buttons */
 .category-selection {
   margin-bottom: 30px;
 }
 
 .category-selection h3 {
-  font-size: 20px;
-  color: var(--text-light); /* Light text */
-  margin-bottom: 15px;
+  font-size: 22px;
+  color: var(--text-light);
   font-weight: 600;
+  margin-bottom: 15px;
 }
 
 .radio-buttons {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   margin-bottom: 25px;
+}
+
+.radio-buttons input[type="radio"] {
+  display: none;
 }
 
 .radio-buttons label {
   font-size: 18px;
-  color: var(--text-light); /* Light text */
+  color: var(--text-light);
+  font-weight: 600;
   cursor: pointer;
-  margin-right: 20px;
-  transition: color 0.3s ease;
+  padding: 12px 20px;
+  border-radius: 25px;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.radio-buttons input[type="radio"]:checked + label {
+  background-color: var(--accent-color);
+  color: white;
 }
 
 .radio-buttons label:hover {
-  color: var(--accent-color); /* Green on hover */
+  background-color: var(--primary-color);
+  color: white;
+  transform: scale(1.05);
+}
+
+.radio-buttons label:active {
+  transform: scale(0.95);
 }
 
 /* Submit button */
 .submit-button-section button {
   width: 100%;
-  padding: 14px 20px;
-  background-color: var(--accent-color); /* Green background */
-  color: var(--text-light); /* Light text */
-  font-size: 18px;
+  padding: 18px 24px;
+  background-color: var(--bg-dark); /* Permanent background color */
+  color: var(--text-light);
+  font-size: 20px;
+  font-weight: 600;
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 .submit-button-section button:hover {
-  background-color: #2ecc71; /* Darker green on hover */
-  transform: translateY(-2px); /* Slight lifting effect */
+  background-color: #34495E; /* Lighter shade of bg-dark */
+  transform: translateY(-6px);
+  box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.3);
 }
 
 .submit-button-section button:active {
-  transform: translateY(1px); /* Button presses down slightly on click */
+  transform: translateY(2px);
+  box-shadow: none;
 }
 
-/* Feedback status after submission */
+/* Status message after submission */
 .feedback-status {
-  color: var(--accent-color); /* Green status message */
-  font-size: 16px;
+  color: var(--accent-color);
+  font-size: 18px;
+  font-weight: 600;
   text-align: center;
   margin-top: 20px;
-  font-weight: 600;
 }
