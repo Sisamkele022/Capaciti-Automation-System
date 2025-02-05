@@ -5,7 +5,7 @@ import { FaHome, FaChartBar, FaCog } from "react-icons/fa"; // Optional icon lib
 const Navbar = () => {
   return (
     <div className="navbar">
-      <div className="brand">My App</div>
+      <div className="brand">CAPACITI</div>
       <div className="nav-links">
         <Link to="/dashboard"><FaChartBar /> Dashboard</Link>
         <Link to="/settings"><FaCog /> Settings</Link>
