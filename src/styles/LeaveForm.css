@@ -1,31 +1,173 @@
-.leave-container {
-    max-width: 400px;
-    margin: auto;
-    padding: 20px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+/* General Body Styling */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f7fa;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.leave-form-container {
+  width: 80%;
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2, h3 {
+  color: #2e3b4e;
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+h3 {
+  color: #007BFF;
+}
+
+/* Form Styling */
+.leave-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.leave-form div {
+  display: flex;
+  flex-direction: column;
+}
+
+.leave-form label {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.leave-form input, 
+.leave-form select {
+  padding: 12px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fafafa;
+  transition: all 0.3s ease;
+}
+
+.leave-form input:focus, 
+.leave-form select:focus {
+  border-color: #007BFF;
+  background-color: #fff;
+}
+
+.submit-button {
+  padding: 12px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #28a745;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #218838;
+}
+
+/* Leave History Section */
+.leave-history {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.leave-history ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.leave-history li {
+  background-color: #fff;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.leave-history li span {
+  color: #888;
+  font-size: 14px;
+}
+
+/* Payslip Download Section */
+.payslip-download {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.payslip-download ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.payslip-download li {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.payslip-download button {
+  padding: 8px 15px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #007BFF;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.payslip-download button:hover {
+  background-color: #0056b3;
+}
+
+/* Section Spacing */
+section {
+  margin-top: 30px;
+}
+
+/* Styling the Form Container */
+.leave-form-container h2 {
+  font-size: 24px;
+  color: #2c3e50;
+  font-weight: bold;
+}
+
+/* Mobile-Friendly Styles */
+@media screen and (max-width: 768px) {
+  .leave-form-container {
+    width: 90%;
+    padding: 15px;
   }
-  
-  .leave-container h2 {
-    text-align: center;
+
+  .leave-form {
+    gap: 15px;
   }
-  
-  .leave-container input, .leave-container textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+
+  .leave-history, 
+  .payslip-download {
+    padding: 15px;
   }
-  
-  .leave-container button {
-    width: 100%;
-    background: #28a745;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
+}

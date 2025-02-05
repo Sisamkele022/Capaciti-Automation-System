@@ -4,20 +4,25 @@ import "../styles/BusinessIssues.css";
 
 function BusinessIssues() {
   const [issueText, setIssueText] = useState("");
-  const [feedbackCategory, setFeedbackCategory] = useState("Complaint"); // Default category
-  const [feedbackStatus, setFeedbackStatus] = useState(""); // For feedback submission status
+  const [feedbackCategory, setFeedbackCategory] = useState("Complaint");
+  const [feedbackStatus, setFeedbackStatus] = useState("");
+  const [anonymous, setAnonymous] = useState(false); // Track if user wants to be anonymous
 
-  // Retrieve issues from localStorage when the component mounts
   useEffect(() => {
     const storedIssues = JSON.parse(localStorage.getItem("businessIssues"));
     if (storedIssues) {
-      // Optionally, you could display a list of previously reported issues here
+      // Optionally, display previously reported issues
     }
   }, []);
 
   const reportIssue = () => {
     if (issueText.trim()) {
-      const newIssue = { text: issueText, category: feedbackCategory, status: "Pending" };
+      const newIssue = {
+        text: issueText,
+        category: feedbackCategory,
+        status: "Pending",
+        anonymous: anonymous, // Store whether it's anonymous
+      };
 
       const newIssues = JSON.parse(localStorage.getItem("businessIssues")) || [];
       newIssues.push(newIssue);
@@ -81,7 +86,19 @@ function BusinessIssues() {
           </div>
         </div>
 
-        {/* Section 3: Submit Button */}
+        {/* Section 3: Anonymous Option */}
+        <div className="anonymous-option">
+          <label>
+            <input
+              type="checkbox"
+              checked={anonymous}
+              onChange={() => setAnonymous(!anonymous)}
+            />
+            Remain Anonymous
+          </label>
+        </div>
+
+        {/* Section 4: Submit Button */}
         <div className="submit-button-section">
           <button onClick={reportIssue}>Submit Feedback</button>
           {feedbackStatus && <div className="feedback-status">{feedbackStatus}</div>}

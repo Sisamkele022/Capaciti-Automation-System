@@ -1,150 +1,197 @@
-/* Scoped color palette */
-.dashboard-container {
-  --primary-color: #00C853; /* Green Accent */
-  --secondary-color: #f9fafb; /* Light Grey */
-  --accent-color: #00C853; /* Green Accent */
-  --bg-dark: #2C3E50; /* Darker Background */
-  --bg-light: #34495E; /* Slightly lighter background */
-  --text-light: #ECF0F1; /* Light Text Color */
-  --border-color: #7F8C8D; /* Border Color */
-}
-
-/* Main container */
+/* General Container */
 .issues-container {
-  max-width: 850px;
-  margin: 60px auto; /* Adjusted margin to ensure it fits the screen */
-  padding: 45px;
-  background-color: var(--bg-dark);
-  border-radius: 20px;
-  box-shadow: 0px 15px 50px rgba(0, 0, 0, 0.3);
-  font-family: 'Arial', sans-serif;
-  color: var(--text-light);
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-  max-height: calc(100vh - 80px); /* Ensures the container fits on the screen */
-  overflow-y: auto; /* Prevents scrolling outside the container */
+  max-width: 800px;
+  margin: 50px auto; /* Moves the content down */
+  padding: 40px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
-/* Title section */
-.issues-container h2 {
-  font-size: 36px;
-  color: var(--primary-color);
+h2 {
   text-align: center;
-  margin-bottom: 40px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  position: relative;
-  z-index: 2;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  color: #333;
+  font-size: 28px;
+  margin-bottom: 30px;
+  font-weight: 600;
 }
 
-/* Text area for input */
-.text-input-section textarea {
+/* Text Input Section */
+.text-input-section {
+  margin-bottom: 20px;
+}
+
+textarea {
   width: 100%;
-  height: 170px; /* Adjusted height to fit screen */
-  padding: 18px;
-  border-radius: 15px;
-  border: 2px solid var(--bg-light); /* Line surrounding the text box */
-  background-color: var(--bg-light);
-  color: var(--text-light);
+  height: 160px;
+  padding: 15px;
   font-size: 16px;
-  line-height: 1.6;
-  margin-bottom: 25px;
-  transition: all 0.3s ease;
-  box-sizing: border-box;
-  resize: none;
-  position: relative;
-  z-index: 2;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  resize: vertical;
+  box-sizing: border-box; /* Ensures padding doesn't overflow */
 }
 
-/* Text box focus state */
-.text-input-section textarea:focus {
-  border-color: var(--accent-color);
+textarea:focus {
+  border-color: #007bff;
   outline: none;
-  box-shadow: 0px 0px 12px rgba(0, 200, 83, 0.5);
 }
 
-/* Category selection - radio buttons */
+/* Feedback Category Section */
 .category-selection {
   margin-bottom: 30px;
 }
 
-.category-selection h3 {
-  font-size: 22px;
-  color: var(--text-light);
-  font-weight: 600;
-  margin-bottom: 15px;
+h3 {
+  color: #555;
+  font-size: 18px;
+  margin-bottom: 10px;
 }
 
 .radio-buttons {
   display: flex;
-  justify-content: space-evenly;
-  margin-bottom: 25px;
-}
-
-.radio-buttons input[type="radio"] {
-  display: none;
+  gap: 25px;
+  flex-wrap: wrap;
 }
 
 .radio-buttons label {
-  font-size: 18px;
-  color: var(--text-light);
-  font-weight: 600;
+  font-size: 16px;
+  color: #333;
   cursor: pointer;
-  padding: 12px 20px;
-  border-radius: 25px;
-  background-color: rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
 }
 
-.radio-buttons input[type="radio"]:checked + label {
-  background-color: var(--accent-color);
-  color: white;
+.radio-buttons input {
+  margin-right: 10px;
+  transform: scale(1.2);
 }
 
-.radio-buttons label:hover {
-  background-color: var(--primary-color);
-  color: white;
-  transform: scale(1.05);
-}
-
-.radio-buttons label:active {
-  transform: scale(0.95);
-}
-
-/* Submit button */
-.submit-button-section button {
-  width: 100%;
-  padding: 18px 24px;
-  background-color: var(--bg-dark); /* Permanent background color */
-  color: var(--text-light);
-  font-size: 20px;
-  font-weight: 600;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
-}
-
-.submit-button-section button:hover {
-  background-color: #34495E; /* Lighter shade of bg-dark */
-  transform: translateY(-6px);
-  box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.3);
-}
-
-.submit-button-section button:active {
-  transform: translateY(2px);
-  box-shadow: none;
-}
-
-/* Status message after submission */
-.feedback-status {
-  color: var(--accent-color);
-  font-size: 18px;
-  font-weight: 600;
+/* Submit Button Section */
+.submit-button-section {
   text-align: center;
   margin-top: 20px;
 }
+
+button {
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.feedback-status {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #333;
+  font-weight: bold;
+  transition: opacity 0.3s ease;
+}
+
+/* Submitted Issues Section */
+.submitted-issues {
+  margin-top: 40px;
+}
+
+.submitted-issues h3 {
+  color: #333;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.submitted-issues ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.submitted-issues li {
+  background-color: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  margin-bottom: 15px;
+  padding: 18px;
+  border-radius: 8px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.submitted-issues li:hover {
+  background-color: #f1f3f5;
+  transform: translateY(-5px);
+  cursor: pointer;
+}
+
+.submitted-issues li strong {
+  color: #007bff;
+  font-weight: 600;
+}
+
+.submitted-issues li span {
+  font-size: 14px;
+  color: #888;
+}
+/* Anonymous Option Section */
+.anonymous-option {
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+
+.anonymous-option label {
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.anonymous-option input {
+  transform: scale(1.3); /* Larger checkbox */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .issues-container {
+    padding: 20px;
+    margin: 20px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  .radio-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  textarea {
+    height: 120px;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .issues-container {
+    padding: 20px;
+    margin: 20px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  .radio-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  textarea {
+    height: 120px;
+  }
+
+
+}
+

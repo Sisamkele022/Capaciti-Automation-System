@@ -1,36 +1,110 @@
+/* Scoped color palette */
+.dashboard-container {
+  --primary-color: #5C6BC0; /* Deep Blue */
+  --secondary-color: #f9fafb; /* Light Grey */
+  --accent-color: #00C853; /* Green Accent */
+  --bg-dark: #2C3E50; /* Darker Background */
+  --bg-light: #34495E; /* Slightly lighter background */
+  --text-light: #ECF0F1; /* Light Text Color */
+  --border-color: #7F8C8D; /* Border Color */
+}
+
+/* Main container */
 .doc-container {
-    max-width: 500px;
-    margin: auto;
-    padding: 20px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .doc-container h2 {
-    text-align: center;
-  }
-  
-  .doc-container input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .doc-container button {
-    width: 100%;
-    background: #007bff;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .doc-container ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 40px;
+  background-color: var(--bg-dark);
+  border-radius: 20px;
+  box-shadow: 0px 15px 50px rgba(0, 0, 0, 0.3);
+  font-family: 'Arial', sans-serif;
+  color: var(--text-light);
+  position: relative;
+}
+
+/* Document name input section */
+.doc-input-section {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.doc-input-section input {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-light);
+  color: var(--text-light);
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.doc-input-section button {
+  padding: 10px;
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.doc-input-section button:hover {
+  background-color: var(--accent-color);
+}
+
+/* Upload status message */
+.upload-status {
+  color: var(--accent-color);
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+/* Document status sections */
+.document-sections {
+  margin-top: 30px;
+}
+
+.document-status h3 {
+  color: var(--text-light);
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.document-status ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.document-status li {
+  font-size: 18px;
+  color: var(--text-light);
+  margin-bottom: 10px;
+}
+
+.document-status button {
+  background-color: var(--accent-color);
+  border: none;
+  color: var(--text-light);
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.document-status button:hover {
+  background-color: #388e3c; /* Darker green */
+}
+
+/* Important documents list */
+.documents-required ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.documents-required li {
+  font-size: 18px;
+  color: var(--text-light);
+  margin-bottom: 10px;
+}
