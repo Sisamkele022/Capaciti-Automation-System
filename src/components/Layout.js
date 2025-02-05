@@ -1,4 +1,4 @@
-import Sidebar from './Sidebar'; // Add this line at the top of Layout.js
+import Sidebar from './Sidebar'; 
 
 function Layout({ children }) {
   return (
