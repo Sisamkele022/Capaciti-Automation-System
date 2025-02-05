@@ -1,39 +1,103 @@
+/* Container for the entire page */
 .issues-container {
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 80px auto; /* Moves content down */
+  padding: 40px;
+  background-color: var(--bg-dark); /* Dark background */
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Light shadow for elevation */
+  font-family: 'Arial', sans-serif;
+  color: var(--text-light); /* Light text color */
 }
 
-textarea {
+/* Title */
+.issues-container h2 {
+  font-size: 32px;
+  color: var(--primary-color); /* Deep blue */
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+/* Text area for issue input */
+.text-input-section textarea {
   width: 100%;
   height: 150px;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  resize: vertical;
-}
-
-button {
-  width: 100%;
-  padding: 10px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
+  padding: 15px;
+  border: 1px solid var(--border-color); /* Light border */
+  border-radius: 10px;
+  margin-bottom: 25px;
   font-size: 16px;
+  line-height: 1.5;
+  resize: none;
+  background-color: var(--bg-light); /* Lighter background for text area */
+  color: var(--text-light); /* Light text inside text area */
+  transition: border-color 0.3s ease;
+}
+
+.text-input-section textarea:focus {
+  border-color: var(--accent-color); /* Green border when focused */
+  outline: none;
+}
+
+/* Section for feedback category selection */
+.category-selection {
+  margin-bottom: 30px;
+}
+
+.category-selection h3 {
+  font-size: 20px;
+  color: var(--text-light); /* Light text */
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.radio-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.radio-buttons label {
+  font-size: 18px;
+  color: var(--text-light); /* Light text */
   cursor: pointer;
+  margin-right: 20px;
+  transition: color 0.3s ease;
 }
 
-button:hover {
-  background-color: #0056b3;
+.radio-buttons label:hover {
+  color: var(--accent-color); /* Green on hover */
 }
 
-p {
-  margin-top: 10px;
-  color: green;
+/* Submit button */
+.submit-button-section button {
+  width: 100%;
+  padding: 14px 20px;
+  background-color: var(--accent-color); /* Green background */
+  color: var(--text-light); /* Light text */
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-weight: bold;
+}
+
+.submit-button-section button:hover {
+  background-color: #2ecc71; /* Darker green on hover */
+  transform: translateY(-2px); /* Slight lifting effect */
+}
+
+.submit-button-section button:active {
+  transform: translateY(1px); /* Button presses down slightly on click */
+}
+
+/* Feedback status after submission */
+.feedback-status {
+  color: var(--accent-color); /* Green status message */
+  font-size: 16px;
+  text-align: center;
+  margin-top: 20px;
+  font-weight: 600;
 }

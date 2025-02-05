@@ -1,117 +1,175 @@
+/* Scoped color palette */
 .attendance-container {
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: center;
+  --primary-color: #5C6BC0; /* Deep Blue */
+  --secondary-color: #f9fafb; /* Light Grey */
+  --accent-color: #00C853; /* Green Accent */
+  --bg-dark: #2C3E50; /* Darker Background */
+  --bg-light: #34495E; /* Slightly lighter background */
+  --text-light: #ECF0F1; /* Light Text Color */
+  --border-color: #7F8C8D; /* Border Color */
+}
+
+/* Attendance container ensures isolation */
+.attendance-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  align-items: center;
   padding: 20px;
-  background: #f9f9f9;
   border-radius: 10px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 20px auto;
 }
 
+/* Heading style */
 h2 {
-  color: #333;
+  text-align: center;
+  color: var(--accent-color);
+  margin-bottom: 20px;
+  font-size: 1.6rem;
 }
 
+/* Login Methods Section */
 .login-methods {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  margin-bottom: 20px;
+  gap: 20px;
+  width: 100%;
 }
 
+/* Flex container for location and QR check */
 .location-check-container,
 .qr-check-container {
-  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--bg-light);  /* Keep this darker background */
   padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
 }
 
-.qr-image {
-  max-width: 200px;
-  margin-bottom: 10px;
+.location-check-container:hover,
+.qr-check-container:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  transform: translateY(-5px);
 }
 
+/* Button styles */
 .check-location-btn,
 .scan-qr-btn,
 .mark-attendance-btn {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 8px;
-  padding: 10px 15px;
+  padding: 12px 20px;
   font-size: 16px;
   font-weight: bold;
-  cursor: pointer;
   border: none;
-  border-radius: 5px;
-  width: 100%;
+  border-radius: 6px;
+  cursor: pointer;
   transition: 0.3s ease;
 }
 
 .check-location-btn {
-  background: #007bff;
-  color: white;
+  background: var(--primary-color);
+  color: var(--text-light);
 }
 
 .scan-qr-btn {
-  background: #28a745;
-  color: white;
+  background: var(--accent-color);
+  color: var(--text-light);
 }
 
 .mark-attendance-btn {
-  background: #ffc107;
-  color: white;
-  margin-top: 15px;
-}
-
-.check-location-btn:hover {
-  background: #0056b3;
-}
-
-.scan-qr-btn:hover {
-  background: #218838;
-}
-
-.mark-attendance-btn:hover {
-  background: #e0a800;
-}
-
-.location-status,
-.qr-status {
-  margin-top: 10px;
-  font-size: 14px;
-  font-weight: bold;
-}
-
-.status-verified {
-  color: green;
-}
-
-.status-denied {
-  color: red;
-}
-
-.status-pending {
-  color: gray;
-}
-
-.attendance-list {
-  list-style: none;
-  padding: 0;
+  background: #ff9800;
+  color: var(--text-light);
+  width: 100%;
   margin-top: 20px;
 }
 
+.check-location-btn:hover,
+.scan-qr-btn:hover,
+.mark-attendance-btn:hover {
+  opacity: 0.8;
+}
+
+/* QR image styling */
+.qr-image {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 10px;
+}
+
+/* Status text styling */
+.location-status,
+.qr-status {
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.status-verified {
+  color: var(--accent-color);
+}
+
+.status-pending {
+  color: #e74c3c;
+}
+
+/* Attendance list styling */
+.attendance-list {
+  margin-top: 20px;
+  list-style: none;
+  padding: 0;
+}
+
 .attendance-list li {
-  padding: 10px;
-  margin: 5px 0;
-  border-radius: 5px;
+  padding: 12px;
+  background: var(--bg-light); /* Matching the background color here */
+  border-radius: 8px;
+  margin-bottom: 10px;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.even {
-  background: #e3f2fd;
+.attendance-list li:hover {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  transform: scale(1.05);
 }
 
-.odd {
-  background: #bbdefb;
+/* Responsive design */
+@media (max-width: 1024px) {
+  .attendance-container {
+    padding: 15px;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .attendance-container {
+    margin-left: 0;
+    padding: 10px;
+  }
+
+  .login-methods {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .location-check-container,
+  .qr-check-container {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .attendance-list li {
+    max-width: 100%;
+  }
 }
