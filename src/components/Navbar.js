@@ -7,7 +7,6 @@ const Navbar = () => {
     <div className="navbar">
       <div className="brand">My App</div>
       <div className="nav-links">
-        <Link to="/"><FaHome /> Home</Link>
         <Link to="/dashboard"><FaChartBar /> Dashboard</Link>
         <Link to="/settings"><FaCog /> Settings</Link>
       </div>
