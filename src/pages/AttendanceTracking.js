@@ -9,6 +9,8 @@ function AttendanceTracking() {
   const [locationMessage, setLocationMessage] = useState("");
   const [qrVerified, setQrVerified] = useState(false);
   const [loadingLocation, setLoadingLocation] = useState(false);
+  const [statusMessage, setStatusMessage] = useState("");
+  const [statusClass, setStatusClass] = useState("");
 
   const officeLocation = { lat: -26.1926, lon: 28.0342 }; // 19 Ameshoff St
   const radius = 50; // 50 meters
@@ -63,6 +65,30 @@ function AttendanceTracking() {
   };
 
   const markAttendance = () => {
+    const now = new Date();
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    const dayOfWeek = now.getDay(); // Sunday = 0, Monday = 1, ..., Saturday = 6
+
+    const lateHour = 8;
+    const lateMinute = 45;
+
+    // Check if it's the weekend
+    if (dayOfWeek === 0 || dayOfWeek === 6) {
+      setStatusMessage("Clocking in on weekends is not allowed.");
+      setStatusClass("status-error");
+      return;
+    }
+
+    // Check if the user is late
+    if (hours > lateHour || (hours === lateHour && minutes > lateMinute)) {
+      setStatusMessage("You are late! Clock-in time is after 08:45 AM.");
+      setStatusClass("status-late");
+    } else {
+      setStatusMessage("Clock-in successful!");
+      setStatusClass("status-success");
+    }
+
     if (!locationVerified && !qrVerified) {
       alert("Please verify your location or scan your QR code.");
       return;
@@ -80,9 +106,9 @@ function AttendanceTracking() {
         <h2>Attendance Tracking</h2>
         <div className="login-methods">
           <div className="location-check-container">
-            <button className="check-location-btn" onClick={checkLocation} disabled={loadingLocation}>
-              {loadingLocation ? "Checking..." : <FaMapMarkerAlt />} Verify Location
-            </button>
+          <button className="check-location-btn" onClick={checkLocation} disabled={loadingLocation}>
+            {loadingLocation ? "Checking..." : <FaMapMarkerAlt />} Verify Location
+          </button>
             <p className={`location-status ${locationVerified ? "status-verified" : "status-pending"}`}>
               {locationMessage}
             </p>
@@ -90,24 +116,16 @@ function AttendanceTracking() {
 
           <div className="qr-check-container">
             <img src="/assets/QR.png" alt="Scan this QR code at the door" className="qr-image" />
-            <button className="scan-qr-btn" onClick={scanQRCode}>
-              <FaQrcode /> Scan QR Code
-            </button>
-            <p className="qr-status">
-              {qrVerified ? (
-                <span className="status-verified">
-                  <FaCheckCircle /> QR Code Verified
-                </span>
-              ) : (
-                <span className="status-pending">Waiting for QR scan...</span>
-              )}
-            </p>
           </div>
         </div>
 
         <button className="mark-attendance-btn" onClick={markAttendance}>
           Mark Attendance
         </button>
+
+        <div className={`status-message ${statusClass}`}>
+          {statusMessage}
+        </div>
 
         <ul className="attendance-list">
           {attendance.map((entry, index) => (

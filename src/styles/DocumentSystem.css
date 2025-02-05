@@ -1,110 +1,188 @@
-/* Scoped color palette */
-.dashboard-container {
-  --primary-color: #5C6BC0; /* Deep Blue */
-  --secondary-color: #f9fafb; /* Light Grey */
-  --accent-color: #00C853; /* Green Accent */
-  --bg-dark: #2C3E50; /* Darker Background */
-  --bg-light: #34495E; /* Slightly lighter background */
-  --text-light: #ECF0F1; /* Light Text Color */
-  --border-color: #7F8C8D; /* Border Color */
-}
-
-/* Main container */
+/* General Container */
 .doc-container {
-  max-width: 900px;
-  margin: 60px auto;
   padding: 40px;
-  background-color: var(--bg-dark);
-  border-radius: 20px;
-  box-shadow: 0px 15px 50px rgba(0, 0, 0, 0.3);
-  font-family: 'Arial', sans-serif;
-  color: var(--text-light);
-  position: relative;
+  margin: 0 auto;
+  max-width: 1100px;
+  background: linear-gradient(to right, #f0f4f8, #e1e8ee);
+  border-radius: 12px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-in-out;
 }
 
-/* Document name input section */
+h2 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 25px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Document Input Section */
 .doc-input-section {
   display: flex;
   flex-direction: column;
+  gap: 20px;
   margin-bottom: 30px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.doc-input-section:hover {
+  transform: translateY(-5px);
 }
 
 .doc-input-section input {
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid var(--border-color);
-  background-color: var(--bg-light);
-  color: var(--text-light);
-  font-size: 16px;
-  margin-bottom: 15px;
+  padding: 12px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #fafafa;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
-.doc-input-section button {
-  padding: 10px;
-  background-color: var(--primary-color);
-  color: var(--text-light);
-  font-size: 16px;
-  font-weight: bold;
+.doc-input-section input:focus {
+  border-color: #007bff;
+  background-color: #f4f9ff;
+  outline: none;
+}
+
+button {
+  padding: 12px 20px;
+  background-color: #007bff;
+  color: #fff;
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   cursor: pointer;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Upload Status */
+.upload-status {
+  font-size: 1.2rem;
+  color: #27ae60;
+  text-align: center;
+  margin-top: 10px;
+  font-weight: 500;
+  animation: slideIn 0.5s ease-out;
+}
+
+/* Document Sections */
+.document-sections {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.documents-required,
+.document-status {
+  flex: 1 1 calc(50% - 30px);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.documents-required {
+  background-color: #ecf6fd;
+}
+
+.document-status {
+  background-color: #f7f8fa;
+}
+
+.documents-required h3,
+.document-status h3 {
+  font-size: 1.4rem;
+  color: #2c3e50;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  padding: 12px;
+  font-size: 1.1rem;
+  color: #34495e;
+  border-bottom: 1px solid #ecf0f1;
   transition: background-color 0.3s ease;
 }
 
-.doc-input-section button:hover {
-  background-color: var(--accent-color);
+ul li:hover {
+  background-color: #f2f6f9;
 }
 
-/* Upload status message */
-.upload-status {
-  color: var(--accent-color);
-  font-size: 16px;
-  margin-top: 10px;
+ul li:last-child {
+  border-bottom: none;
 }
 
-/* Document status sections */
-.document-sections {
-  margin-top: 30px;
-}
-
-.document-status h3 {
-  color: var(--text-light);
-  font-size: 22px;
-  margin-bottom: 15px;
-}
-
-.document-status ul {
-  list-style-type: none;
-  padding-left: 0;
-}
-
-.document-status li {
-  font-size: 18px;
-  color: var(--text-light);
-  margin-bottom: 10px;
-}
-
-.document-status button {
-  background-color: var(--accent-color);
-  border: none;
-  color: var(--text-light);
+/* Mark as Submitted Button */
+button {
   padding: 6px 12px;
-  border-radius: 5px;
+  font-size: 1rem;
+  background-color: #27ae60;
+  color: white;
+  border-radius: 6px;
+  border: none;
   cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.document-status button:hover {
-  background-color: #388e3c; /* Darker green */
+button:hover {
+  background-color: #2ecc71;
+  transform: scale(1.1);
 }
 
-/* Important documents list */
-.documents-required ul {
-  list-style-type: none;
-  padding-left: 0;
+button:focus {
+  outline: none;
 }
 
-.documents-required li {
-  font-size: 18px;
-  color: var(--text-light);
-  margin-bottom: 10px;
+/* Add animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .document-sections {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .documents-required,
+  .document-status {
+    flex: 1 1 100%;
+  }
 }
